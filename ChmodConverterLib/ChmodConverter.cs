@@ -1,7 +1,7 @@
 ﻿namespace ChmodConverterLib
 {
     //Piotr Bacior - 15 722 - WSEI Kraków 
-    public class ChmodConverterLib
+    public class ChmodConverter
     {
         //Definujemy metodę, która odpowiadać będzie za konwersję trybu symbolicznego na numeryczny 
         public static string SymbolicToNumeric(string symbolic)
@@ -33,7 +33,7 @@
                 wynik += wartosc.ToString();
             }
 
-            //Na końcu zwracamy wynik konwersji, który jest w formacie numerycznym (przykład. 735, 673, 843)
+            //Na końcu zwracamy wynik konwersji, który jest w formacie numerycznym (przykład. 777, 400, 731)
             return wynik;
         }
 
