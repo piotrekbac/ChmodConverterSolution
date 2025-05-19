@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChmodConverterLib", "ChmodConverterLib\ChmodConverterLib.csproj", "{D17FABFC-46E9-48FA-ACCB-E6E356859FF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChmodConverterTests", "ChmodConverterTests\ChmodConverterTests.csproj", "{251961A0-AC21-447C-A375-FB76D6B3C431}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChmodConverterConsole", "ChmodConverterConsole\ChmodConverterConsole.csproj", "{AF686B3F-1533-4965-BBC8-3FD83041CCDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChmodConverterWpf", "ChmodConverterWpf\ChmodConverterWpf.csproj", "{7FD2A1A9-6812-4AF7-A99E-8BA13EF89BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChmodConverterWeb", "ChmodConverterWeb\ChmodConverterWeb.csproj", "{B5765511-FAE2-4CCC-B3BB-927394CDBD9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D17FABFC-46E9-48FA-ACCB-E6E356859FF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D17FABFC-46E9-48FA-ACCB-E6E356859FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D17FABFC-46E9-48FA-ACCB-E6E356859FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D17FABFC-46E9-48FA-ACCB-E6E356859FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251961A0-AC21-447C-A375-FB76D6B3C431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251961A0-AC21-447C-A375-FB76D6B3C431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251961A0-AC21-447C-A375-FB76D6B3C431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251961A0-AC21-447C-A375-FB76D6B3C431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF686B3F-1533-4965-BBC8-3FD83041CCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF686B3F-1533-4965-BBC8-3FD83041CCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF686B3F-1533-4965-BBC8-3FD83041CCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF686B3F-1533-4965-BBC8-3FD83041CCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD2A1A9-6812-4AF7-A99E-8BA13EF89BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD2A1A9-6812-4AF7-A99E-8BA13EF89BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD2A1A9-6812-4AF7-A99E-8BA13EF89BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD2A1A9-6812-4AF7-A99E-8BA13EF89BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5765511-FAE2-4CCC-B3BB-927394CDBD9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5765511-FAE2-4CCC-B3BB-927394CDBD9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5765511-FAE2-4CCC-B3BB-927394CDBD9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5765511-FAE2-4CCC-B3BB-927394CDBD9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23624254-9217-4F55-966E-8BC88701669A}
+	EndGlobalSection
+EndGlobal
