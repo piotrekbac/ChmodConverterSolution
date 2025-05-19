@@ -6,15 +6,23 @@
         //Definujemy metodę, która odpowiadać będzie za konwersję trybu symbolicznego na numeryczny 
         public static string SymbolicToNumeric(string symbolic)
         {
+            //Sprawdzamy czy wejście jest poprawne, a dokładniej czy nie składa się z nulla - jeżeli tak, to rzucamy wyjątek ArgumentException
+            if (symbolic == null)
+                throw new ArgumentException("Tryb symboliczny nie może być null!");
+
             //Sprawdzamy czy wejście jest poprawne, czyli czy ma 9 znaków - jeżeli nie, to rzucamy wyjątek ArgumentException
             if (symbolic.Length != 9)
                 throw new ArgumentException("Tryb symboliczny musi mieć 9 znaków!");
+
+            //Sprawdzamy czy wejście jest poprawne, a dokładniej czy składa się ono z 9 znaków oraz czy są to znaki r, w, x, - - jeżeli nie, to rzucamy wyjątek ArgumentException
+            if (!symbolic.All(c => c == 'r' || c == 'w' || c == 'x' || c == '-'))
+                throw new ArgumentException("Tryb symboliczny może zawierać tylko znaki r, w, x, -!");
 
             //Definiujemy teraz pustą zmienną wynik typu string, w której będziemy przechowywać wynik konwersji 
             string wynik = "";
 
             //Iterujemy po każdym z 3 bloków po 3 znaki, które odpowiadają za uprawnienia dla właściciela, grupy i innych użytkowników (przykład. rwx, rw-, r--)
-            for (int i =0; i < 9; i += 3)
+            for (int i = 0; i < 9; i += 3)
             {
                 //Definujemy zmienną wartosc typu int, ustawiamy na 0, która będzie odpowiadać za wartość uprawnień w systemie numerycznym (przykład. r=4, w=2, x=1)
                 int wartosc = 0;
@@ -41,25 +49,23 @@
         public static string NumericToSymbolic(string numeric)
         {
             //Sprawdzamy czy wejście jest poprawne, a dokładniej czy składa się ono z 3 cyfr oraz czy są to cyfry (0-9) - jeżeli nie, to rzucamy wyjątek ArgumentException
-            if (numeric.Length != 3 || !numeric.All(char.IsDigit))
+            if (numeric == null || numeric.Length != 3 || !numeric.All(char.IsDigit))
                 throw new ArgumentException("Tryb numeryczny musi mieć 3 znaki!");
 
-            //Definiujemy teraz pustą zmienną wynik typu string, w której będziemy przechowywać wynik konwersji
-            string wynik = "";
+            foreach (char c in numeric)
+            {
+                if (c < '0' || c > '7')
+                    throw new ArgumentException("Cyfry muszą być w zakresie 0-7!");
+            }
 
-            //Iterujemy po każdej z 3 cyfr, które odpowiadają za uprawnienia dla właściciela, grupy i innych użytkowników (przykład. '7', '6', '5')
+            string wynik = "";
             foreach (char znak in numeric)
             {
-                //Zamieniamy znak na liczbę całkowitą, aby móc operować na niej w systemie binarnym (przykładowo zmiana '9' na liczbę -> int 9)
                 int value = znak - '0';
-
-                //Przechodzimy do sprawdzenia które bity są ustawione, 4 czyli r, 2 czyli w, 1 czyli x
-                //Jeżeli 4 = 1 , to dodajemy r, jeżeli 2 = 1 to dodajemy w, jeżeli 1 = 1 to dodajemy x, jeżeli żaden z bitów nie jest ustawiony to dodajemy '-'
                 wynik += (value & 4) != 0 ? "r" : "-";
                 wynik += (value & 2) != 0 ? "w" : "-";
                 wynik += (value & 1) != 0 ? "x" : "-";
             }
-            //Na końcu zwracamy wynik konwersji, który jest w formacie symbolicznym (przykład. "rwxr-xr--")
             return wynik;
         }
     }
