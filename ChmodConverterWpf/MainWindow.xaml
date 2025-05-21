@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChmodConverterWpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Interfejs WPF - Piotr Bacior 15 722 WSEI Kraków" Height="450" Width="800">
+    <!--
+        Okno główne aplikacji — konwerter uprawnień plików Linux.
+        Pozwala na wprowadzanie i przeliczanie uprawnień w dwóch formatach:
+        symbolicznym (np. rwxrwxrwx) oraz numerycznym (np. 755).
+    -->
+    <Grid Margin="15">
+        <!-- Modelujemy pole do podania uprawnień w formacie symbolicznym -->
+        <TextBlock Text="Symboliczny:" Margin="0,0,0,5"/>
+        <TextBox x:Name="SymbolicInput" VerticalAlignment="Top" TextChanged="Symbolic_TextChanged" Margin="0,20,0,0"/>
 
+        <!-- Teraz modelujemy wynikowy zapis numeryczny, na podstawie symbolicznego (Pole readonly) -->
+        <TextBlock Text="Numeryczny:" Margin="0,50,0,5"/>
+        <TextBox x:Name="NumericOutput" IsReadOnly="True" Margin="0,70,0,0"/>
+
+        <!-- Modelujemy pole do podania uprawnień w formacie numerycznym -->
+        <TextBlock Text="Numeryczny (input):" Margin="0,100,0,5"/>
+        <TextBox x:Name="NumericInput" VerticalAlignment="Top" TextChanged="Numeric_TextChanged" Margin="0,120,0,0"/>
+
+        <!-- Pole odpowiedzialne za wyświetlanie przeliczonego zapisu symbolicznego -->
+        <TextBlock Text="Symboliczny (output):" Margin="0,150,0,5"/>
+        <TextBox x:Name="SymbolicOutput" IsReadOnly="True" Margin="0,170,0,0"/>
+
+        <!-- Teraz modelujemy pole w którym znajdują się komunikaty o błędach pojawiają się w tym polu -->
+        <TextBlock x:Name="ErrorText" Foreground="Red" Margin="0,200,0,0"/>
     </Grid>
 </Window>
