@@ -153,6 +153,22 @@ namespace ChmodConverterTests
         {
             ChmodConverter.SymbolicToNumeric(null);
         }
+
+        // Testuje przypadek, gdy w numeric występuje cyfra większa niż 7 (np. '8')
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void NumericToSymbolic_CyfraPozaZakresem_8()
+        {
+            ChmodConverter.NumericToSymbolic("782"); // '8' jest poza zakresem
+        }
+
+        //Testuje przypadek, gdy w numeric występuje spacja między cyframi (np. '7 4')
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void NumericToSymbolic_ZawieraSpacje()
+        {
+            ChmodConverter.NumericToSymbolic("7 4"); // spacja w środku
+        }
     }
 
 }
