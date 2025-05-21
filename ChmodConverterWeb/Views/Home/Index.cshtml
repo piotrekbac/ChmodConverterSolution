@@ -1,8 +1,39 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Konwerter CHMOD - Piotr Bacior 15 722 Kraków WSEI";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Konwerter uprawnień CHMOD</h2>
+
+<!--
+    Definiujemy formularz do zapisu uprawnień naszych plików. Użytkownik może podać 
+    odpowiednie uprawnienia w formie symbolicznej (np. rwxr-xr--) lub numerycznej (np. 755).
+    Po dokonaniu wysłania formularza (przy pomocy POST) następuje konwersja naszego fomularza na drugi format. 
+-->
+<form method="post" autocomplete="off">
+    <label for="input">
+        Wprowadź uprawnienia (np. rwxr-xr-- lub 755):
+    </label><br />
+    <input type="text"
+           id="input"
+           name="input"
+           value="@ViewBag.Input"
+           style="width:300px;"
+           maxlength="9"
+           autocomplete="off" />
+    <button type="submit">Konwertuj</button>
+</form>
+
+<!-- Jeśli pojawił się błąd konwersji, wyświetlony ma zostać komunikat w kolorze czerwonym -->
+@if (ViewBag.Error != null)
+{
+    <p style="color: #b71c1c; font-weight: bold;">@ViewBag.Error</p>
+}
+
+<!-- Jeżeli konwersja się powiodła, prezentujemy wynik w czytelnej i przejrzystej formie -->
+@if (ViewBag.Result != null)
+{
+    <div style="margin-top: 16px;">
+        <strong>@ViewBag.ResultType:</strong>
+        <span>@ViewBag.Result</span>
+    </div>
+}
