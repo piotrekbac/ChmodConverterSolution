@@ -1,27 +1,40 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Piotr Bacior 15 722 - WSEI Kraków
+
+//Registrujemy us³ugi MVC, konkretne typy kontrolerów oraz widoków
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+//Tworzymy aplikacjê ASP.NET Core
+var aplikacjaPB = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+//Konfigurujemy obs³ugê wyj¹tków oraz wymuszenia HTTPS w aplikacji naszej ASP.NET Core
+if (!aplikacjaPB.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    //Przekierowujemy wszystkie b³êdy do strony b³êdu 
+    aplikacjaPB.UseExceptionHandler("/Home/Error");
+
+    //W³¹czamy nag³ówek HSTS, co zwiêksza bezpieczeñstwo aplikacji przy po³¹czeniach z HTTPS
+    aplikacjaPB.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+//Dokonujemy przekierowania HTTP do HTTPS, co zwiêksza bezpieczeñstwo aplikacji
+aplikacjaPB.UseHttpsRedirection();
 
-app.UseRouting();
+//Umo¿liwiamy obs³ugê plików statycznych takich jak style czy obrazy
+aplikacjaPB.UseStaticFiles();
 
-app.UseAuthorization();
+//Umo¿liwiamy routing w aplikacji, co pozwala na mapowanie adresów URL do odpowiednich kontrolerów i akcji
+aplikacjaPB.UseRouting();
 
-app.MapControllerRoute(
+//Korzystamy z "Middleware" odpowiedzialnego za autoryzacjê, je¿eli zostanie ona wdro¿ona
+aplikacjaPB.UseAuthorization();
+
+//Przechodzimy do ustawienia domyœlnej trasy - nasza aplikacja startuje od ChmodController i jego akcji Index
+aplikacjaPB.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Chmod}/{action=Index}/{id?}"
+);
 
-app.Run();
+//Uruchamiamy nasz¹ aplikacjê 
+aplikacjaPB.Run();
