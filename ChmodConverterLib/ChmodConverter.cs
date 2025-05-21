@@ -52,20 +52,27 @@
             if (numeric == null || numeric.Length != 3 || !numeric.All(char.IsDigit))
                 throw new ArgumentException("Tryb numeryczny musi mieć 3 znaki!");
 
+            //Sprawdzamy czy wejście jest poprawne, a dokładniej czy składa się ono z cyfr (0-7) - jeżeli nie, to rzucamy wyjątek ArgumentException
             foreach (char c in numeric)
             {
                 if (c < '0' || c > '7')
                     throw new ArgumentException("Cyfry muszą być w zakresie 0-7!");
             }
 
+            //Definiujemy teraz pustą zmienną wynik typu string, w której będziemy przechowywać wynik konwersji
             string wynik = "";
+
+            //Iterujemy po każdej cyfrze w zmiennej numeric, która odpowiadać będzie za uprawnienia w systemie numerycznym (przykład. 7, 5, 4)
             foreach (char znak in numeric)
             {
+                //Definiujemy zmienną wartosc typu int, która będzie odpowiadać za wartość uprawnień w systemie numerycznym (przykład. r=4, w=2, x=1)
                 int value = znak - '0';
                 wynik += (value & 4) != 0 ? "r" : "-";
                 wynik += (value & 2) != 0 ? "w" : "-";
                 wynik += (value & 1) != 0 ? "x" : "-";
             }
+
+            //Na końcu zwracamy wynik konwersji, który jest w formacie symbolicznym (przykład. rwxr-xr--)
             return wynik;
         }
     }

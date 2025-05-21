@@ -12,7 +12,9 @@ class Program
         {
             Console.WriteLine("Używamy trybu symbolicznego/numerycznego programu chmodconverter");
             return;
-        }    
+
+            //Prawym na ChmodConverterConsole i wybieram "Właściwości" -> "Debug" -> w zakłdace Debugowanie wpisałem: "rwxrwxrwx"
+        }
 
         //Pobieramy teraz argument podany przez użytkownika
         string input = args[0];

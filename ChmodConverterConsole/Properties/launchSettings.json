@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ChmodConverterConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "rwxrwxrwx\r\n"
+    }
+  }
+}
