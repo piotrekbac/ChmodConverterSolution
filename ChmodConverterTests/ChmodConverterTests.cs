@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ChmodConverterLib;
 
+//Piotr Bacior 15 722 - WSEI Kraków
+
 namespace ChmodConverterTests
 {
     [TestClass]
